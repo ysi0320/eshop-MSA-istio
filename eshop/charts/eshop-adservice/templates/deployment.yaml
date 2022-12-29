@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eshop-adservice
+spec:
+  selector:
+    matchLabels:
+      app: eshop-adservice
+  template:
+    metadata:
+      labels:
+        app: eshop-adservice
+    spec:
+      containers:
+        - name: eshop-adservice
+          image: {{ .Values.global.images.adservice }}
+          ports:
+          - containerPort: 8095
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:postgresql://postgres:5432/eshop_db"
+            # - name: SPRING_PROFILES_ACTIVE
+            #   value: "chaos-monkey"  

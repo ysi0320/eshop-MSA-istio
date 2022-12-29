@@ -1,0 +1,55 @@
+global:
+  app:
+    name: eshop
+    namespace: eshop
+  tls:
+    enabled: false          # True to enable TLS (set by deploy-all.ps1)
+    issuer: ""
+  ingress:                                              # ingress related settings
+    entries:
+      eshop-frontend: eshop-frontend
+      eshop-currencyservice: eshop-currencyservice
+      eshop-productservice: eshop-productservice
+      eshop-recommendservice: eshop-recommendservice
+      eshop-adservice: eshop-adservice
+      eshop-backend: eshop-backend
+      eshop-cartservice: eshop-cartservice
+      # spa: ""                                           # ingress entry for web spa
+  svc:
+    eshop-frontend: eshop-frontend
+    eshop-currencyservice: eshop-currencyservice
+    eshop-productservice: eshop-productservice
+    eshop-recommendservice: eshop-recommendservice
+    eshop-adservice: eshop-adservice
+    eshop-backend: eshop-backend
+    eshop-cartservice: eshop-cartservice
+    # spa: webspa                                       # service name for web spa
+  
+  images:
+    adservice: 865712449710.dkr.ecr.us-east-1.amazonaws.com/eshop-adservice:latest
+    backend: 865712449710.dkr.ecr.us-east-1.amazonaws.com/eshop-backend:latest
+    cartservice: 865712449710.dkr.ecr.us-east-1.amazonaws.com/eshop-cartservice:latest
+    frontend: 865712449710.dkr.ecr.us-east-1.amazonaws.com/eshop-frontend:latest
+    currencyservice: 865712449710.dkr.ecr.us-east-1.amazonaws.com/eshop-currencyservice:latest
+    productservice: 865712449710.dkr.ecr.us-east-1.amazonaws.com/eshop-productservice:latest
+    recommendservice: 865712449710.dkr.ecr.us-east-1.amazonaws.com/eshop-recommendservice:latest
+  appinsights:
+    key: ""               # App insights to use
+  k8s:                      # inf.k8s defines Kubernetes cluster global config
+    dns:  ""                # k8s external  DNS. This value or ip value MUST BE PROVIDED
+    local: false            # True when deploying on "local K8s" provided by Docker Desktop.
+  hpa:
+    minReplicas: 1
+    maxReplicas: 18
+  misc:                     # inf.misc contains miscellaneous configuration related to infrastructure
+    useLoadTest: false      # If running under loading test or not
+    useAzureStorage: false  # If catalog api uses azure storage or not
+  lightweight:
+    #kiali-server:
+    #  enabled: true
+    #prometheus:
+    #  enabled: true
+    #elasticsearch:
+    #  enabled: true
+    #grafana:
+    #  enabled: true
