@@ -6,8 +6,8 @@ version: 2.0.0
 appVersion: "2.4.0"
 dependencies:
 
-#- name: metrics-server
-#  condition: global.lightweight.metrics-server.enabled
+- name: metrics-server
+  condition: global.lightweight.metrics-server.enabled
 #- name: prometheus
 #  condition: global.lightweight.prometheus.enabled
 #- name: grafana
