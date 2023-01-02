@@ -45,11 +45,32 @@ global:
     useLoadTest: false      # If running under loading test or not
     useAzureStorage: false  # If catalog api uses azure storage or not
   lightweight:
-    #kiali-server:
-    #  enabled: true
-    #prometheus:
-    #  enabled: true
-    #elasticsearch:
-    #  enabled: true
-    #grafana:
-    #  enabled: true
+    kiali-server:
+      enabled: true
+    prometheus:
+      enabled: true
+    elasticsearch:
+      enabled: true
+    grafana:
+      enabled: true
+  kibanaEnabled: true 
+  high-availability:
+    elasticsearch:
+      enabled: false
+    istio-ingress:
+      enabled: false
+jaeger:
+  provisionDataStore:
+    cassandra: false
+  storage:
+    type: elasticsearch
+    elasticsearch:
+      host: eshop-coordinating-only
+      port: 9200
+elasticsearch:
+  master:
+    replicas: 1
+  coordinating:
+    replicas: 1
+  data:
+    replicas: 1 
