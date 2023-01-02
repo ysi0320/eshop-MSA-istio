@@ -73,7 +73,7 @@ external_services:
     custom_metrics_url: http://eshop-prometheus-server
   tracing:
     in_cluster_url: http://eshop-jaeger-query/jaeger
-    url: https://eshop.seant2hub.click/jaeger
+    url: https://eshop.twoon.click/jaeger
   custom_dashboards:
     enabled: true
 
