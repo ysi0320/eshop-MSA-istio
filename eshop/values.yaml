@@ -53,7 +53,12 @@ global:
       enabled: true
     grafana:
       enabled: true
-  kibanaEnabled: true 
+  kibanaEnabled: true
+  tracing:
+    enabled: true
+    servicename: "eshop-jaeger-agent"
+    serviceport: "6831"
+    traceinterval: "7500" 
   high-availability:
     elasticsearch:
       enabled: false
