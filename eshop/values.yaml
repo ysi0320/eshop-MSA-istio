@@ -29,10 +29,12 @@ global:
     adservice: 865712449710.dkr.ecr.us-east-1.amazonaws.com/eshop-adservice:latest
     backend: 865712449710.dkr.ecr.us-east-1.amazonaws.com/eshop-backend:latest
     cartservice: 865712449710.dkr.ecr.us-east-1.amazonaws.com/eshop-cartservice:latest
-    frontend: 865712449710.dkr.ecr.us-east-1.amazonaws.com/eshop-frontend:latest
+    #frontend: 865712449710.dkr.ecr.us-east-1.amazonaws.com/eshop-frontend:latest
+    frontend: 224166808254.dkr.ecr.us-east-1.amazonaws.com/eshop-frontend:review
     currencyservice: 865712449710.dkr.ecr.us-east-1.amazonaws.com/eshop-currencyservice:latest
     productservice: 865712449710.dkr.ecr.us-east-1.amazonaws.com/eshop-productservice:latest
     recommendservice: 865712449710.dkr.ecr.us-east-1.amazonaws.com/eshop-recommendservice:latest
+    reviewservice: 224166808254.dkr.ecr.us-east-1.amazonaws.com/eshop-reviewservice:latest
   appinsights:
     key: ""               # App insights to use
   k8s:                      # inf.k8s defines Kubernetes cluster global config

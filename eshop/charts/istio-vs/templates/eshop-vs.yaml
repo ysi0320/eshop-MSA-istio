@@ -50,6 +50,14 @@ spec:
           number: 8095
   - match:
     - uri:
+        prefix: /api/reviews
+    route:
+    - destination:
+        host: eshop-reviewservice
+        port:
+          number: 8096
+  - match:
+    - uri:
         prefix: /api
     route:
     - destination:

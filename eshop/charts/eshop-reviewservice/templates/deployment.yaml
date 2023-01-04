@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eshop-reviewservice
+spec:
+  selector:
+    matchLabels:
+      app: eshop-reviewservice
+  template:
+    metadata:
+      labels:
+        app: eshop-reviewservice
+    spec:
+      terminationGracePeriodSeconds: 5
+      containers:
+      - name: eshop-reviewservice
+        image: {{ .Values.global.images.reviewservice }}
+        ports:
+        - containerPort: 8096
+        env:
+        - name: PORT
+          value: "8096"
+        - name: MONGO_URI
+          value: "mongodb://admin:password@mongodb"
+        - name: INIT_DATA
+          value: "true"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+          limits:
+            cpu: 200m
+            memory: 128Mi
