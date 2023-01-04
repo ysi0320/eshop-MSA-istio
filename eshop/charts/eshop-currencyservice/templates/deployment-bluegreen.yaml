@@ -16,8 +16,8 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: eshop-currencyservice
-        #image: {{ .Values.global.images.currencyservice }}
-        image: 224166808254.dkr.ecr.us-east-1.amazonaws.com/eshop-currencyservice:bluegreentestv1
+        image: {{ .Values.global.images.currencyservice }}
+        #image: 224166808254.dkr.ecr.us-east-1.amazonaws.com/eshop-currencyservice:bluegreentestv1
         imagePullPolicy: Always
         ports:
         - containerPort: 8094
