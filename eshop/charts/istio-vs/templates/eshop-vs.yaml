@@ -81,6 +81,8 @@ spec:
         prefix: /css
     - uri:
         prefix: /js
+    - uri:
+        prefix: /img
     route:
     - destination:
         host: eshop-frontend
