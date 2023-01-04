@@ -1,37 +1,37 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
-metadata:
-  name: eshop-currencyservice
-spec:
-  replicas: 2
-  revisionHistoryLimit: 2
-  selector:
-    matchLabels:
-      app: eshop-currencyservice
-  template:
-    metadata:
-      labels:
-        app: eshop-currencyservice
-    spec:
-      terminationGracePeriodSeconds: 5
-      containers:
-      - name: eshop-currencyservice
-        image: {{ .Values.global.images.currencyservice }}
-        #image: 224166808254.dkr.ecr.us-east-1.amazonaws.com/eshop-currencyservice:bluegreentestv1
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8094
-        env:
-        - name: PORT
-          value: "8094"
-        resources:
-          requests:
-            cpu: 100m
-            memory: 64Mi
-          limits:
-            cpu: 200m
-            memory: 128Mi
-  strategy:
-    blueGreen: 
-      activeService: eshop-currencyservice
-      autoPromotionEnabled: false
+# apiVersion: argoproj.io/v1alpha1
+# kind: Rollout
+# metadata:
+#   name: eshop-currencyservice
+# spec:
+#   replicas: 2
+#   revisionHistoryLimit: 2
+#   selector:
+#     matchLabels:
+#       app: eshop-currencyservice
+#   template:
+#     metadata:
+#       labels:
+#         app: eshop-currencyservice
+#     spec:
+#       terminationGracePeriodSeconds: 5
+#       containers:
+#       - name: eshop-currencyservice
+#         image: {{ .Values.global.images.currencyservice }}
+#         #image: 224166808254.dkr.ecr.us-east-1.amazonaws.com/eshop-currencyservice:bluegreentestv1
+#         imagePullPolicy: Always
+#         ports:
+#         - containerPort: 8094
+#         env:
+#         - name: PORT
+#           value: "8094"
+#         resources:
+#           requests:
+#             cpu: 100m
+#             memory: 64Mi
+#           limits:
+#             cpu: 200m
+#             memory: 128Mi
+#   strategy:
+#     blueGreen: 
+#       activeService: eshop-currencyservice
+#       autoPromotionEnabled: false
